@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from '../../employee';
-import { EmployeeService } from '../../employee.service';
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/model/employee';
 
 @Component({
   selector: 'app-employee-details',
@@ -13,7 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
   id: number;
   employee: any;
   
-  constructor(private route: ActivatedRoute,private router: Router,private employeeService: EmployeeService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.employee = new Employee();
@@ -22,7 +22,7 @@ export class EmployeeDetailsComponent implements OnInit {
         .subscribe(data => {
           console.log(data)
           this.employee = data;
-        },error => console.log(error));
+        }, error => console.log(error));
   }
 
   list(){

@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmployeeListComponent } from './employee-module/employee-list/employee-list.component';
-import { CreateEmployeeComponent } from './employee-module/create-employee/create-employee.component'
-import { EmployeeDetailsComponent } from './employee-module/employee-details/employee-details.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'employee',pathMatch:'full'},
-  {path:'employees',component:EmployeeListComponent},
-  {path:'add',component:CreateEmployeeComponent},
-  {path:'details',component:EmployeeDetailsComponent}
+  {
+    path: '',
+    loadChildren: () => import('./components/auth-module/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'Employee',
+    loadChildren: () => import('./components/employee-module/employee.module').then(m => m.EmployeeModule)
+  },
+  {
+    path: 'Catalog',
+    loadChildren: () => import('./components/catalog-module/catalog.module').then(m => m.CatalogModule)
+  },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

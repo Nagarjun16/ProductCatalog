@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../employee';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeService } from '../../employee.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/model/employee';
 
 @Component({
   selector: 'app-update-employee',
@@ -10,17 +10,17 @@ import { EmployeeService } from '../../employee.service';
 })
 export class UpdateEmployeeComponent implements OnInit {
 
-  id:number;
+  id: number;
   employee: any;
   submitted = false;
 
-  constructor(private route:ActivatedRoute, private router: Router,private employeeService: EmployeeService) { }
+  constructor(private route: ActivatedRoute, private router: Router,private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employee = new Employee();
 
     this.id = this.route.snapshot.params['id'];
-    
+
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
         console.log(data)
@@ -28,10 +28,10 @@ export class UpdateEmployeeComponent implements OnInit {
       }, error => console.log(error));
   }
   updateEmployee(){
-    this.employeeService.updateEmployee(this.id,this.employee)
-        .subscribe(data => console.log(data),error => console.log(error));
-      this.employee = new Employee();
-      this.gotoList();
+    this.employeeService.updateEmployee(this.id, this.employee)
+        .subscribe(data => console.log(data), error => console.log(error));
+    this.employee = new Employee();
+    this.gotoList();
   }
   onSubmit(){
     this.submitted = true;

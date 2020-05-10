@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../../employee';
-import { EmployeeService } from '../../employee.service';
 import { Router } from '@angular/router';
+import { Employee } from 'src/app/model/employee';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees:Observable<Employee[]>;
+  employees: Observable<Employee[]>;
 
-  constructor(private employeeService : EmployeeService , private router: Router) { }
+  constructor(private employeeService: EmployeeService , private router: Router) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -24,7 +24,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
  deleteEmployee(id: number){
-   console.log("Raghav::"+ id);
   this.employeeService.deleteEmployee(id)
       .subscribe(
         data => {
