@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EmployeePortal": {
+    "UIPortal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/EmployeePortal",
+            "outputPath": "dist/UIPortal",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.sass",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -70,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "EmployeePortal:build"
+            "browserTarget": "UIPortal:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "EmployeePortal:build:production"
+              "browserTarget": "UIPortal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EmployeePortal:build"
+            "browserTarget": "UIPortal:build"
           }
         },
         "test": {
@@ -118,18 +119,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "EmployeePortal:serve"
+            "devServerTarget": "UIPortal:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "EmployeePortal:serve:production"
+              "devServerTarget": "UIPortal:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "EmployeePortal",
+  "defaultProject": "UIPortal",
   "cli": {
     "analytics": "e19c826d-6ccd-43b3-a096-408f3592aff6"
   }
