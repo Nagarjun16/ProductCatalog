@@ -1,9 +1,11 @@
 package com.portal.employee.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,64 +23,80 @@ import org.springframework.web.bind.annotation.RestController;
 import com.portal.employee.exception.ResourceNotFoundException;
 import com.portal.employee.model.Employee;
 import com.portal.employee.repository.EmployeeRepository;
+import com.portal.employee.service.SendEmailService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1")
 public class EmployeeController {
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
+	@Autowired
+	private SendEmailService sendMailService;
+
 	@GetMapping("/employees")
-	public List<Employee> getAllEmployees(){
-		
+	public List<Employee> getAllEmployees() {
+
 		return employeeRepository.findAll();
 	}
-	
+
 	@GetMapping("employees/{id}")
 	public ResponseEntity<Employee> getEmployeebyId(@PathVariable(value = "id") Long employeeId)
-		throws ResourceNotFoundException{
-		
+			throws ResourceNotFoundException {
+
 		Employee employee = employeeRepository.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee Not Found For the Id:" + employeeId));
 		return ResponseEntity.ok().body(employee);
 	}
-	
+
 	@PostMapping("employees")
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
 		return employeeRepository.save(employee);
 	}
-	
+
 	@PutMapping("employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
-			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException{
+			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
 		Employee employee = employeeRepository.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee Not Found For Id:" + employeeId));
 		employee.setEmailId(employeeDetails.getEmailId());
 		employee.setFirstName(employeeDetails.getFirstName());
 		employee.setLastName(employeeDetails.getLastName());
-		
+
 		final Employee updatedEmployee = employeeRepository.save(employee);
 		return ResponseEntity.ok(updatedEmployee);
-		
+
 	}
+
 	@DeleteMapping("employees/{id}")
-	public Map<String,Boolean> deleteEmployee(@PathVariable(value="id") Long employeeId)
-		throws ResourceNotFoundException{
-		
+	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)
+			throws ResourceNotFoundException {
+
 		Employee employee = employeeRepository.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee Not Found For The Id:" + employeeId));
 		employeeRepository.delete(employee);
-		
-		Map<String,Boolean> response = new HashMap();
-		
+
+		Map<String, Boolean> response = new HashMap();
+
 		response.put("Deleted", Boolean.TRUE);
-		
+
 		return response;
-		
-				
-				
+
 	}
-	
+
+	@RequestMapping("/sendemail")
+	public String sendMail() {
+
+		try {
+			sendMailService.sendEmail();
+
+		} catch (MessagingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "Mail Sent Successfully!";
+	}
+
 }
