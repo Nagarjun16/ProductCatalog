@@ -1,4 +1,4 @@
-package com.portal.employee.controller;
+package com.arrow.warehousemgmt.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,14 +20,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portal.employee.exception.ResourceNotFoundException;
-import com.portal.employee.model.Employee;
-import com.portal.employee.repository.EmployeeRepository;
-import com.portal.employee.service.SendEmailService;
+import com.arrow.warehousemgmt.exception.ResourceNotFoundException;
+import com.arrow.warehousemgmt.model.Employee;
+import com.arrow.warehousemgmt.repository.EmployeeRepository;
+import com.arrow.warehousemgmt.service.SendEmailService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
 public class EmployeeController {
 
 	@Autowired
@@ -88,12 +87,9 @@ public class EmployeeController {
 
 	@RequestMapping("/sendemail")
 	public String sendMail() {
-
 		try {
 			sendMailService.sendEmail();
-
 		} catch (MessagingException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "Mail Sent Successfully!";

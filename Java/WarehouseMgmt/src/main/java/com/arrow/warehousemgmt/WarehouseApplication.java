@@ -1,13 +1,13 @@
-package com.portal.employee;
+package com.arrow.warehousemgmt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmployeeApplication {
+public class WarehouseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmployeeApplication.class, args);
+		SpringApplication.run(WarehouseApplication.class, args);
 	}
 
 }
