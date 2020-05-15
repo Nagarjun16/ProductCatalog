@@ -1,4 +1,4 @@
-package com.portal.employee.exception;
+package com.arrow.warehousemgmt.exception;
 
 import java.util.Date;
 

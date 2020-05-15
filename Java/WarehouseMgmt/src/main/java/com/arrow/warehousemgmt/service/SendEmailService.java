@@ -1,4 +1,4 @@
-package com.portal.employee.service;
+package com.arrow.warehousemgmt.service;
 
 import java.io.IOException;
 import java.util.Date;
@@ -26,14 +26,13 @@ public class SendEmailService {
 
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("xxx@gmail.com", "****"); //Email ID/Pwd for authentication
+				return new PasswordAuthentication("nagarjun16@gmail.com", "Amogh#123"); //Email ID/Pwd for authentication
 			}
 		});
 
 		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress("xxx@gmail.com", false)); //From Email Id Here
-		message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("xxx@gmail.com,yyy@gmsil.com")); //To email addresses with comma seperated here
+		message.setFrom(new InternetAddress("nagarjun16@gmail.com", false)); //From Email Id Here
+		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("raghavendarlal@gmail.com")); //To email addresses with comma seperated here
 		message.setSubject("Catalog/Employee Service Email");
 
 		message.setText("Hi There!" + "\n \n" + "This is Catalog/Employee Service Email!!!" + "\n \n \n"

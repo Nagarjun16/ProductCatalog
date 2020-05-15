@@ -1,4 +1,4 @@
-package com.portal.employee.controller;
+package com.arrow.warehousemgmt.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,14 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portal.employee.exception.ResourceNotFoundException;
-import com.portal.employee.model.Employee;
-import com.portal.employee.model.Product;
-import com.portal.employee.repository.ProductRepository;
+import com.arrow.warehousemgmt.exception.ResourceNotFoundException;
+import com.arrow.warehousemgmt.model.Employee;
+import com.arrow.warehousemgmt.model.Product;
+import com.arrow.warehousemgmt.repository.ProductRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
 public class ProductController {
 
 	@Autowired
