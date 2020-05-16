@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.arrow.warehousemgmt.exception.ResourceNotFoundException;
-import com.arrow.warehousemgmt.model.Employee;
+import com.arrow.warehousemgmt.model.Users;
 import com.arrow.warehousemgmt.model.Product;
 import com.arrow.warehousemgmt.repository.ProductRepository;
 

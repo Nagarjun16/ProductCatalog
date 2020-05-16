@@ -3,9 +3,9 @@ package com.arrow.warehousemgmt.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.arrow.warehousemgmt.model.Employee;
+import com.arrow.warehousemgmt.model.Users;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long>{
-
+public interface UsersRepository extends JpaRepository<Users, Long>{
+	Users findByUsername(String username);
 }
