@@ -1,11 +1,11 @@
 export const ApiConfig = {
     serviceURL: 'http://localhost:8081/',
-    performLogin: '/springboot-crud-rest/api/v1/login',
-    updatePassword: '/springboot-crud-rest/api/v1/updatePassword',
-    getEmployeeList: '/springboot-crud-rest/api/v1/employees',
-    deleteEmployee: '/springboot-crud-rest/api/v1/employees',
-    updateEmployee: '/springboot-crud-rest/api/v1/employees',
-    generateEmployee: '/springboot-crud-rest/api/v1/employees'
+    performLogin: '/api/v1/login',
+    updatePassword: '/api/v1/updatePassword',
+    getEmployeeList: '/api/v1/employees',
+    deleteEmployee: '/api/v1/employees',
+    updateEmployee: '/api/v1/employees',
+    generateEmployee: '/api/v1/employees'
 };
 
 export const Environment = {
