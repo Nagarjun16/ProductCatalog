@@ -40,8 +40,8 @@ public class AuthenticationController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody Users authenticationRequest) throws Exception {
 		Users user = usersRepository.findById(authenticationRequest.getId()).get();
-		authenticate(user.getUsername(), "password");
-		final UserDetails userDetails =  new User(user.getUsername(), "password", new ArrayList<>());
+		authenticate(user.getUsername(), "");
+		final UserDetails userDetails =  new User(user.getUsername(), "", new ArrayList<>());
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		return ResponseEntity.ok(new LoginResponse(token));
 	}
