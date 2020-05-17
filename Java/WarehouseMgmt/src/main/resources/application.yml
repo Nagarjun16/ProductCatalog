@@ -12,6 +12,9 @@ spring:
     properties:      hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+jwt:
+  clientSecret: MIIWHSEAPP
+
 server:
   servlet:
     context-path: /

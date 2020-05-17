@@ -1,10 +1,10 @@
-package com.portal.employee;
+package com.arrow.warehousemgmt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmployeeApplicationTests {
+class WarehouseApplicationTests {
 
 	@Test
 	void contextLoads() {
