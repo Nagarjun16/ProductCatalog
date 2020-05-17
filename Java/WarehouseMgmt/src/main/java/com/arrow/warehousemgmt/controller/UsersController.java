@@ -19,62 +19,44 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.arrow.warehousemgmt.exception.ResourceNotFoundException;
 import com.arrow.warehousemgmt.model.Users;
-import com.arrow.warehousemgmt.repository.UsersRepository;
+import com.arrow.warehousemgmt.service.UsersService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsersController {
 
 	@Autowired
-	private UsersRepository usersRepository;
-
-	
+	private UsersService usersService;
 
 	@GetMapping("/userlist")
 	public List<Users> getAllusers() {
-
-		return usersRepository.findAll();
+		return usersService.getAllusers();
 	}
 
 	@GetMapping("users/{id}")
-	public ResponseEntity<Users> getuserbyId(@PathVariable(value = "id") Long userId)
-			throws ResourceNotFoundException {
-
-		Users user = usersRepository.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("user Not Found For the Id:" + userId));
+	public ResponseEntity<Users> getUserbyId(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
+		Users user = usersService.findUserById(userId);
 		return ResponseEntity.ok().body(user);
 	}
 
 	@PostMapping("register")
-	public Users createuser(@Valid @RequestBody Users user) {
-		return usersRepository.save(user);
+	public Users registerUser(@Valid @RequestBody Users user) {
+		return usersService.registerUser(user);
 	}
 
 	@PutMapping("updateuser/{id}")
-	public ResponseEntity<Users> updateuser(@PathVariable(value = "id") Long userId,
+	public ResponseEntity<Users> updateUser(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody Users userDetails) throws ResourceNotFoundException {
-		Users user = usersRepository.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("user Not Found For Id:" + userId));
-		final Users updateduser = usersRepository.save(user);
+		final Users updateduser = usersService.updateUser(userId, userDetails);
 		return ResponseEntity.ok(updateduser);
-
 	}
 
 	@DeleteMapping("unregister/{id}")
-	public Map<String, Boolean> deleteuser(@PathVariable(value = "id") Long userId)
-			throws ResourceNotFoundException {
-
-		Users user = usersRepository.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("user Not Found For The Id:" + userId));
-		usersRepository.delete(user);
-
+	public Map<String, Boolean> deleteuser(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
+		usersService.deleteUser(userId);
 		Map<String, Boolean> response = new HashMap();
-
 		response.put("Deleted", Boolean.TRUE);
-
 		return response;
-
 	}
 
-	
 }

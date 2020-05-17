@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.arrow.warehousemgmt.service.SendEmailService;
 
 @RestController
-public class HealthcheckController {
+public class UtilitiesController {
 
 	@Autowired
 	private SendEmailService sendMailService;
