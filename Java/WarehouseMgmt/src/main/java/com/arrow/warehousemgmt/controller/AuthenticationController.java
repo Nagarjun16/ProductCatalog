@@ -13,7 +13,7 @@ import com.arrow.warehousemgmt.model.Users;
 import com.arrow.warehousemgmt.service.AuthenticationService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
 
 	@Autowired

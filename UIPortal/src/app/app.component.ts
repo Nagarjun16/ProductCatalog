@@ -7,7 +7,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'Asset Management System';
+  title = 'Project Overview System';
 
   constructor(private authService: AuthService ) { }
 

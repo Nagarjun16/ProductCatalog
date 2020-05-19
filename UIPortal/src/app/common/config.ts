@@ -1,19 +1,19 @@
 export const ApiConfig = {
-    serviceURL: 'http://localhost:8081/',
-    performLogin: '/api/v1/login',
-    updatePassword: '/api/v1/updatePassword',
-    getEmployeeList: '/api/v1/employees',
-    deleteEmployee: '/api/v1/employees',
-    updateEmployee: '/api/v1/employees',
-    generateEmployee: '/api/v1/employees'
+    serviceURL: 'http://localhost:8081',
+    performLogin: '/authenticate',
+    departmentList: '/departmentList',
+    getEmployeeList: '/userlist',
+    deleteEmployee: '/unregister',
+    updateEmployee: '/updateuser',
+    generateEmployee: '/register'
 };
 
 export const Environment = {
     production: false,
     theme: 'light',
-    dateFormat: "ddMMMyyyy",
-    timeFormat: "HH:mm",
-    dateTimeFormat: "ddMMMyyyy HH:mm",
+    dateFormat: 'ddMMMyyyy',
+    timeFormat: 'HH:mm',
+    dateTimeFormat: 'ddMMMyyyy HH:mm',
     currencySymbol: 'INR',
     enableGuard: true,
     enableAuthHeader: true

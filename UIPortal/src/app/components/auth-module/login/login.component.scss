@@ -149,3 +149,33 @@ fieldset{
   display: flex;
   width: 600px;
 }
+
+.errormessage {
+  background-color: none !important;
+	color: 	#8B0000 !important;
+	display: contents !important;
+	float: left;
+	height: 16px !important;
+	line-height: 24px !important;
+	text-align: center;
+	width: 100% !important;
+}
+
+.form-control {
+  border-radius: 0px 3px 3px 0px;
+	color: #000;
+	margin-bottom: 1em;
+	padding: 0 16px;
+  width: 200px;
+  height: 50px;
+  font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 0;
+  -webkit-appearance: none;
+}
+
+::ng-deep .mat-select-trigger {
+  height: 50px !important;
+  position: inherit !important;
+}

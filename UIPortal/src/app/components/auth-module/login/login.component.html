@@ -4,13 +4,19 @@
       <div id="login">
         <form [formGroup]="loginForm" formName="loginForm" autocomplete="off">
           <fieldset class="clearfix">
-            <p><span class="fa fa-user"></span><input type="text" Placeholder="Username" formControlName="username" required></p>
-            <p><span class="fa fa-lock"></span><input type="password" Placeholder="Password" #passwordInput formControlName="password" required></p>
+            <p><span class="fa fa-user"></span><input type="text" Placeholder="User Id" formControlName="userid" required></p>
+            <p>
+              <span class="fa fa-briefcase"></span>
+              <!-- <input type="text" Placeholder="Department" #passwordInput formControlName="department" required> -->
+              <mat-select class= "form-control" formControlName="department" name="department">
+                <mat-option *ngFor="let department of departmentList" [value]="department">
+                  {{department.lable}}
+                </mat-option>
+              </mat-select>
+            </p>
+            <span *ngIf="errorMessage" class="fa fa-times-circle errormessage">{{errorMessage}}</span>
             <div>
-              <span style="width:48%; text-align:left;  display: inline-block;">
-                  <a class="small-text" href="#" (click)="ForgotUser($event)">Forgot password?</a>
-              </span>
-              <span style="width:50%; text-align:right;  display: inline-block;">
+              <span style="width:100%; text-align:right;  display: inline-block;">
                 <button (click)="LoginUser($event)" type="button" class="btn btn-dark">Sign In</button></span>
             </div>
           </fieldset>
