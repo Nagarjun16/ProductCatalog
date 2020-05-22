@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiConfig } from '../common/config';
-import { session } from '../common/session';
 
 
 @Injectable({
@@ -33,18 +32,7 @@ export class EmployeeService {
   }
 
   getEmployeesList(): Observable<any>{
-    const headerJson = {
-      Authorization: 'Bearer ' + session.authToken,
-      Accept: 'application/json',
-      'Access-Control-Allow-Credentials': 'true',
-      'Content-Type': 'application/json'
-    };
-
-    const httpOptions = {
-      headers: new HttpHeaders(headerJson)
-    };
-
     const baseUrl = ApiConfig.serviceURL + ApiConfig.getEmployeeList;
-    return this.http.get(baseUrl, httpOptions);
+    return this.http.get(baseUrl);
   }
 }
