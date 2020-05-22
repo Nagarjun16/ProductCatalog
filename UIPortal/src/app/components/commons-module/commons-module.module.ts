@@ -4,11 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /**
- * Auth Module Route
+ * Common Module Route
  */
-const routes: Routes = [
-
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [
@@ -18,4 +16,4 @@ const routes: Routes = [
   ],
   declarations: []
 })
-export class AuthModule { }
+export class CommonsModuleModule { }

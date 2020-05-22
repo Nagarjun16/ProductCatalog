@@ -6,19 +6,19 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
+                    <th>User Name</th>
+                    <th>User Id</th>
+                    <th>Depaartment</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees | async">
-                    <td>{{employee.firstName}}</td>
-                    <td>{{employee.lastName}}</td>
-                    <td>{{employee.emailId}}</td>
-                    <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-                    <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px;">Details</button>
+                <tr *ngFor="let user of users | async">
+                    <td>{{user.username}}</td>
+                    <td>{{user.id}}</td>
+                    <td>{{user.department}}</td>
+                    <td><button (click)="deleteEmployee(user.id)" class="btn btn-danger">Delete</button>
+                    <button (click)="employeeDetails(user.id)" class="btn btn-info" style="margin-left: 10px;">Details</button>
                     </td>
                 </tr>
             </tbody>

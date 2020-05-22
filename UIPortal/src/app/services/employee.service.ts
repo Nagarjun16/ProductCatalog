@@ -34,8 +34,9 @@ export class EmployeeService {
 
   getEmployeesList(): Observable<any>{
     const headerJson = {
-      'Authorization': 'Bearer ' + session.authToken,
-      'Accept': 'application/json',
+      Authorization: 'Bearer ' + session.authToken,
+      Accept: 'application/json',
+      'Access-Control-Allow-Credentials': 'true',
       'Content-Type': 'application/json'
     };
 

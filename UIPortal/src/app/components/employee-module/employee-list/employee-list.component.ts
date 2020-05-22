@@ -11,7 +11,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees: Observable<Employee[]>;
+  users: Observable<Employee[]>;
 
   constructor(private employeeService: EmployeeService , private router: Router) { }
 
@@ -20,7 +20,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   reloadData(){
-    this.employees = this.employeeService.getEmployeesList();
+    this.users = this.employeeService.getEmployeesList();
   }
 
  deleteEmployee(id: number){
@@ -33,7 +33,6 @@ export class EmployeeListComponent implements OnInit {
         error => console.log(error));
  }
  employeeDetails(id: number){
-   //this.router.navigate(['details',id]);
    this.router.navigate(['details']);
  }
 
