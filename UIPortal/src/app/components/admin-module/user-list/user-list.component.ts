@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
   }
 
   updateUser(id: number) {
-    this.router.navigate(['details']);
+    this.router.navigate(['/Admin/update'], { state: { userid: id }});
   }
 
 }

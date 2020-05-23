@@ -14,18 +14,21 @@ export class UpdateUserComponent implements OnInit {
   userDetails: any;
   submitted = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { 
+    if (this.router.getCurrentNavigation() && this.router.getCurrentNavigation().extras.state) {
+      this.id = this.router.getCurrentNavigation().extras.state.userid;
+    }
+  }
 
   ngOnInit() {
     this.userDetails = new UserDetails();
-
-    this.id = this.route.snapshot.params['id'];
-
-    this.userService.getUserDetails(this.id)
+    if (this.id){
+      this.userService.getUserDetails(this.id)
       .subscribe(data => {
         console.log(data)
         this.userDetails = data;
       }, error => console.log(error));
+    }
   }
 
   updateUser(){
@@ -41,6 +44,6 @@ export class UpdateUserComponent implements OnInit {
   }
 
   gotoList(){
-    this.router.navigate(['/userlist']);
+    this.router.navigate(['/Admin/userlist']);
   }
 }
