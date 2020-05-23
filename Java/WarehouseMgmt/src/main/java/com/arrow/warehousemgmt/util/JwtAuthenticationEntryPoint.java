@@ -2,6 +2,7 @@ package com.arrow.warehousemgmt.util;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +23,8 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException {
-
-		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+		if(!"cors".equalsIgnoreCase(request.getHeader("sec-fetch-mode"))) {
+			response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+		}
 	}
 }

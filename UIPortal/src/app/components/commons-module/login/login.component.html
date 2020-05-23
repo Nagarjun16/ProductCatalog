@@ -1,0 +1,29 @@
+<div class="main" *ngIf="!isAuthorized()">
+  <div class="container">
+    <div class="middle">
+      <div id="login">
+        <form [formGroup]="loginForm" formName="loginForm" autocomplete="off">
+          <fieldset class="clearfix">
+            <p><span class="fa fa-user"></span><input type="text" Placeholder="User Id" formControlName="userid" required></p>
+            <p>
+              <span class="fa fa-briefcase"></span>
+              <!-- <input type="text" Placeholder="Department" #passwordInput formControlName="department" required> -->
+              <mat-select class= "form-control" formControlName="department" name="department">
+                <mat-option *ngFor="let department of departmentList" [value]="department">
+                  {{department.lable}}
+                </mat-option>
+              </mat-select>
+            </p>
+            <span *ngIf="errorMessage" class="fa fa-times-circle errormessage">{{errorMessage}}</span>
+            <div>
+              <span style="width:100%; text-align:right;  display: inline-block;">
+                <button (click)="LoginUser($event)" type="button" class="btn btn-dark">Sign In</button></span>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="brandLogo">
+      </div>
+    </div>
+  </div>
+</div>

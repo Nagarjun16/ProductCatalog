@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.sass",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css"
@@ -134,5 +135,4 @@
   "cli": {
     "analytics": "e19c826d-6ccd-43b3-a096-408f3592aff6"
   }
-  
 }
