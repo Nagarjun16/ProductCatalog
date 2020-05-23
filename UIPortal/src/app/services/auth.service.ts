@@ -20,4 +20,8 @@ constructor(private http: HttpClient) { }
   public isAuthorized() {
     return (!session.authToken || session.authToken === '') ? false : true;
   }
+
+  public removeAuthData() {
+    session.authToken = '';
+  }
 }

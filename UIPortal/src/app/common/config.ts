@@ -1,7 +1,7 @@
 export const ApiConfig = {
     serviceURL: 'http://localhost:8081',
     performLogin: '/authenticate',
-    departmentList: '/departmentList',
+    departmentList: '/dropdown/departmentList',
     getUserList: '/userlist',
     registerUser: '/register',
     updateUser: '/updateuser',
