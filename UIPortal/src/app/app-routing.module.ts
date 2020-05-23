@@ -5,8 +5,8 @@ import { LoginComponent } from './components/commons-module/login/login.componen
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {
-    path: 'Employee',
-    loadChildren: () => import('./components/employee-module/employee.module').then(m => m.EmployeeModule)
+    path: 'Admin',
+    loadChildren: () => import('./components/admin-module/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'Catalog',

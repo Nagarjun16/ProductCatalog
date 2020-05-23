@@ -33,25 +33,25 @@ public class UsersController {
 		return usersService.getAllusers();
 	}
 
-	@GetMapping("users/{id}")
+	@GetMapping("/userlist/{id}")
 	public ResponseEntity<Users> getUserbyId(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
 		Users user = usersService.findUserById(userId);
 		return ResponseEntity.ok().body(user);
 	}
 
-	@PostMapping("register")
+	@PostMapping("/register")
 	public Users registerUser(@Valid @RequestBody Users user) {
 		return usersService.registerUser(user);
 	}
 
-	@PutMapping("updateuser/{id}")
+	@PutMapping("/updateuser/{id}")
 	public ResponseEntity<Users> updateUser(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody Users userDetails) throws ResourceNotFoundException {
 		final Users updateduser = usersService.updateUser(userId, userDetails);
 		return ResponseEntity.ok(updateduser);
 	}
 
-	@DeleteMapping("unregister/{id}")
+	@DeleteMapping("/unregister/{id}")
 	public Map<String, Boolean> deleteuser(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
 		usersService.deleteUser(userId);
 		Map<String, Boolean> response = new HashMap();
