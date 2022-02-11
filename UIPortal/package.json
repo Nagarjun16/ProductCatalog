@@ -37,7 +37,7 @@
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
-    "node-sass": "6.0.1",
+    "node-sass": "7.0.0",
     "sass-loader": "12.3.0",
     "node-sass-tilde-importer": "1.0.2",
     "@types/node": "^12.11.1",
